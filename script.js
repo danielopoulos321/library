@@ -20,6 +20,22 @@ Book.prototype.toggleRead = function() {
     displayBooks();
 }
 
+const bookForm = document.getElementById('newBook');
+bookForm.addEventListener("submit", function(event) {
+    addBookToLibrary();
+    displayBooks();
+    showForm();
+    event.preventDefault();
+    })
+
+function showForm(){
+    if (bookForm.hasAttribute('hidden')){
+        bookForm.removeAttribute('hidden');
+    } else {
+        bookForm.setAttribute('hidden', '');
+    }
+}  
+
 function addBookToLibrary() {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
@@ -27,6 +43,7 @@ function addBookToLibrary() {
     let read = document.getElementById('read').checked ? "Read" : "Not Yet Read";
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    bookForm.reset();
 }
 
 function displayBooks() {
@@ -36,6 +53,7 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
       let card = document.createElement("div");
       card.dataset.indexNumber = i;
+      card.classList.add('card');
   
       let content = `
           <h2>${myLibrary[i].title}</h2>
@@ -50,24 +68,9 @@ function displayBooks() {
   }
 
   function removeBook(index){
-    myLibrary.splice(index, index+1);
+    myLibrary.splice(index, 1);
     displayBooks();
-  }
-
-const bookForm = document.getElementById('newBook');
-bookForm.addEventListener("submit", function(event) {
-    addBookToLibrary();
-    displayBooks();
-    event.preventDefault();
-    })
-
-function showForm(){
-    if (bookForm.hasAttribute('hidden')){
-        bookForm.removeAttribute('hidden');
-    } else {
-        bookForm.setAttribute('hidden', '');
-    }
-}      
+  }    
 
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not Yet Read');
 const bible = new Book('The Bible', 'God', '1440', 'Read');
