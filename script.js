@@ -62,8 +62,11 @@ bookForm.addEventListener("submit", function(event) {
     })
 
 function showForm(){
-      bookForm.removeAttribute('hidden');
-      //Update this to cancel out of adding a book
+    if (bookForm.hasAttribute('hidden')){
+        bookForm.removeAttribute('hidden');
+    } else {
+        bookForm.setAttribute('hidden', '');
+    }
 }      
 
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not Yet Read');
