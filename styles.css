@@ -37,6 +37,13 @@ form>input{
     border-radius: 5px;
 }
 
+.formHead{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #container{
     max-width: 1000px;
     display: grid;
@@ -71,6 +78,19 @@ form>input{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  #close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  #close:hover,
+  #close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
   }
 
 /*Button CSS*/

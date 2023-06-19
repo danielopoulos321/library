@@ -71,9 +71,14 @@ function displayBooks() {
 
   let modal = document.getElementById('modal');
   let bookBtn = document.getElementById('bookBtn');
+  let closeBtn = document.getElementById('close');
 
   bookBtn.addEventListener('click', function() {
     modal.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
   });
 
   window.addEventListener('click', function(event) {
