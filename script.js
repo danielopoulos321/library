@@ -13,7 +13,7 @@ function Book(title, author, pages, read) {
 
 Book.prototype.toggleRead = function() {
     if(this.read == "Read"){
-        this.read = "Not Yet Read";
+        this.read = "Not Read";
     } else {
         this.read = "Read";
     }
@@ -40,7 +40,7 @@ function addBookToLibrary() {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').checked ? "Read" : "Not Yet Read";
+    let read = document.getElementById('read').checked ? "Read" : "Not Read";
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
     bookForm.reset();
@@ -57,10 +57,14 @@ function displayBooks() {
   
       let content = `
           <h2>${myLibrary[i].title}</h2>
-          <h3>By ${myLibrary[i].author}</h3>
-          <p>${myLibrary[i].pages} pages</p>
-          <button onclick="myLibrary[${i}].toggleRead()" >${myLibrary[i].read}</button>
-          <button onclick="removeBook(${i})" >Remove Book</button>
+          <h3>By: ${myLibrary[i].author}</h3>
+          <p>Pages: ${myLibrary[i].pages}</p>
+          <label class="switch">
+            <p>Read Status: </p>
+            <input type="checkbox" class="checkbox" ${myLibrary[i].read ? 'checked':'unchecked'}>
+            <div class="slider"></div>
+          </label>
+          <button onclick="removeBook(${i})">Remove</button>
       `;
       card.innerHTML = content;
       container.appendChild(card);
@@ -72,9 +76,9 @@ function displayBooks() {
     displayBooks();
   }    
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not Yet Read');
-const bible = new Book('The Bible', 'God', '1440', 'Read');
-const nineteen84 = new Book('1984', 'George Orwell', '888', 'Not Yet Read');
+const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
+const bible = new Book('The Bible', 'Various', '1440', true);
+const nineteen84 = new Book('1984', 'George Orwell', '888', false);
 myLibrary.push(theHobbit);
 myLibrary.push(bible);
 myLibrary.push(nineteen84);
