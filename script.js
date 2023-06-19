@@ -12,10 +12,10 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function() {
-    if(this.read == "Read"){
-        this.read = "Not Read";
+    if(this.read == true){
+        this.read = false;
     } else {
-        this.read = "Read";
+        this.read = true;
     }
     displayBooks();
 }
@@ -24,23 +24,16 @@ const bookForm = document.getElementById('newBook');
 bookForm.addEventListener("submit", function(event) {
     addBookToLibrary();
     displayBooks();
-    showForm();
     event.preventDefault();
+    modal.style.display = 'none';
     })
 
-function showForm(){
-    if (bookForm.hasAttribute('hidden')){
-        bookForm.removeAttribute('hidden');
-    } else {
-        bookForm.setAttribute('hidden', '');
-    }
-}  
 
 function addBookToLibrary() {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').checked ? "Read" : "Not Read";
+    let read = document.getElementById('read').checked ? true : false;
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
     bookForm.reset();
@@ -57,7 +50,7 @@ function displayBooks() {
   
       let content = `
           <h2>${myLibrary[i].title}</h2>
-          <h3>By: ${myLibrary[i].author}</h3>
+          <h4>By: ${myLibrary[i].author}</h4>
           <p>Pages: ${myLibrary[i].pages}</p>
           <label class="switch">
             <p>Read Status: </p>
@@ -75,6 +68,20 @@ function displayBooks() {
     myLibrary.splice(index, 1);
     displayBooks();
   }    
+
+  let modal = document.getElementById('modal');
+  let bookBtn = document.getElementById('bookBtn');
+
+  bookBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+  
 
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
 const bible = new Book('The Bible', 'Various', '1440', true);

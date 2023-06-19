@@ -8,12 +8,19 @@
 </head>
 <body>
     <div class="header">
-        <button onclick="showForm()">+ New Book</button>
-        <form id="newBook" hidden>
+        <h1>Book Worm</h1>
+        <button id="bookBtn">+ New Book</button>
+    </div>
+    <div id="modal">
+        <form id="newBook">
+            <h3>Add a New Book</h3>
             <input id="title" name="title" type="text" required>
             <input id="author" name="author" type="text" required>
             <input id="pages" name="pages" type="number" required>
-            <input id="read" name="read" type="checkbox">
+            <div>
+                <span>Have You Read It?</span>
+                <input id="read" name="read" type="checkbox">
+            </div>
             <input type="submit">
         </form>
     </div>
