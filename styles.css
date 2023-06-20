@@ -4,17 +4,24 @@
 }
 
 body{
-    background-color: rgb(221, 221, 221);
+    background-color: #e0fbfc;
     font-family: sans-serif;
 }
 .header{
-height: 4em;
-padding: .5em;
-background-color: whitesmoke;
-box-shadow: 2px 2px 2px rgb(167, 165, 165);
-display: flex;
-align-items: center;
-justify-content: space-between;
+    height: 4em;
+    padding: .5em;
+    background-color: #3d5a80;
+    color: #e0fbfc;
+    box-shadow: 2px 2px 2px rgb(167, 165, 165);
+}
+
+.header > div{
+    margin: auto;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 form{
@@ -23,18 +30,11 @@ form{
     align-items: center;
     width: 300px;
     padding: 1em;
-    margin: 10% auto;
+    font-weight: 700;
+    margin: 20vh auto;
     background-color: rgb(218, 216, 216);
     border-radius: 1em;
     box-shadow: 2px 2px 2px rgb(167, 165, 165);
-}
-
-form>input{
-    width: 80%;
-    height: 3em;
-    margin: .5em;
-    border: none;
-    border-radius: 5px;
 }
 
 .formHead{
@@ -42,6 +42,23 @@ form>input{
     width: 80%;
     align-items: center;
     justify-content: space-between;
+}
+
+form > input{
+    width: 80%;
+    height: 2.5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    margin: .5em;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+}
+
+#read{
+    transform: scale(1.5);
+    margin-left: 35px;
 }
 
 #container{
@@ -55,8 +72,8 @@ form>input{
 
 
 .card{
-    background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%); 
+    color: #293241;
+    background: #98c1d9;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
     height: 150px;
     padding: 1em;
@@ -94,22 +111,23 @@ form>input{
   }
 
 /*Button CSS*/
-button {
-    font-size: 17px;
+   button, input[type="submit"] {
+    font-size: 18px;
     padding: 0.5em 2em;
     border: transparent;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    background: dodgerblue;
+    background: #ee6c4d;
     color: white;
     border-radius: 4px;
    }
    
-   button:hover {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+   button:active,
+   input[type="submit"]:active {
+    background: #9e4933;
    }
    
-   button:active {
+   button:hover,
+   input[type="submit"]:hover {
     transform: translate(0em, 0.2em);
    }
 

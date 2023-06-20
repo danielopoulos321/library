@@ -8,8 +8,10 @@
 </head>
 <body>
     <div class="header">
-        <h1>Book Worm</h1>
-        <button id="bookBtn">+ New Book</button>
+        <div>
+            <h1>Book Worm</h1>
+            <button id="bookBtn">+ New Book</button>
+        </div>
     </div>
     <div id="modal">
         <form id="newBook">
@@ -17,19 +19,17 @@
                 <h3>Add a New Book</h3>
                 <span id="close">&times;</span>
             </div>
-            <input id="title" name="title" type="text" required>
-            <input id="author" name="author" type="text" required>
-            <input id="pages" name="pages" type="number" required>
+            <input id="title" name="title" type="text" placeholder="Title" required>
+            <input id="author" name="author" type="text" placeholder="Author" required>
+            <input id="pages" name="pages" type="number" placeholder="Pages" required>
             <div>
-                <span>Have You Read It?</span>
+                <label for="read">Have You Read It?</label>
                 <input id="read" name="read" type="checkbox">
             </div>
             <input type="submit">
         </form>
     </div>
-    <div class="center">
         <div id="container"></div>
-    </div>
 </body>
 <script src="script.js"></script>
 </html>
