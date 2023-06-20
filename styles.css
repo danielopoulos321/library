@@ -7,7 +7,10 @@ body{
     background-color: #e0fbfc;
     font-family: sans-serif;
 }
+
 .header{
+    font-family: Snell Roundhand, cursive;
+    font-size: 20px;
     height: 4em;
     padding: .5em;
     background-color: #3d5a80;
@@ -56,6 +59,10 @@ form > input{
     border-radius: 5px;
 }
 
+.check{
+    padding: .75em;
+}
+
 #read{
     transform: scale(1.5);
     margin-left: 35px;
@@ -75,12 +82,20 @@ form > input{
     color: #293241;
     background: #98c1d9;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-    height: 150px;
+
     padding: 1em;
     border-radius: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.card > *{
+    padding: 5px;
+}
+
+.card > p{
+    font-size: 15px;
 }
 
 /*New Book Modal*/

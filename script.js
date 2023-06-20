@@ -1,6 +1,5 @@
 let myLibrary = [];
 
-
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -87,11 +86,10 @@ function displayBooks() {
     }
   });
   
-
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
-const bible = new Book('The Bible', 'Various', '1440', true);
-const nineteen84 = new Book('1984', 'George Orwell', '888', false);
+  const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
+  const catcher = new Book('The Catcher in the Rye', 'J.D Salinger', '1440', true);
+  const nineteen84 = new Book('1984', 'George Orwell', '888', false);
 myLibrary.push(theHobbit);
-myLibrary.push(bible);
+myLibrary.push(catcher);
 myLibrary.push(nineteen84);
 displayBooks();
